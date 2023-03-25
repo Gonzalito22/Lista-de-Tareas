@@ -2,7 +2,6 @@ const input = document.querySelector("input");
 const addBtn = document.querySelector(".btn-add");
 const ul = document.querySelector("ul");
 const empty = document.querySelector(".empty");
-const historia = [];
 const historial = document.querySelector("#historial");
 
 // funcion agregar tarea
@@ -20,8 +19,7 @@ addBtn.addEventListener("click", (e) => {
     li.appendChild(p);
     ul.appendChild(li);
     li.appendChild(addDeleteBtn());
-    historia.push(text);
-    agregaHistorial();
+    agregaHistorial(text);
 
     input.value = "";
 
@@ -50,11 +48,9 @@ function addDeleteBtn() {
   return deleteBtn;
 }
 
-//intento de historial
-function agregaHistorial() {
-  historia.forEach((nuevo) => {
-    const tarea = document.createElement("p");
-    tarea.textContent = nuevo;
-    historial.appendChild(tarea);
-  });
+//funcion historial
+function agregaHistorial(nuevo) {
+  const tarea = document.createElement("p");
+  tarea.textContent = nuevo;
+  historial.appendChild(tarea);
 }
